@@ -1,0 +1,38 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+int main(){
+	char data[3][100] = {" 154Rio","155jon","6969wayan"};
+	char* endPtr;
+	for(int i = 0; i < 3; i++){
+		long value = strtod(data[i], &endPtr);
+		cout << "Nama : "<< endPtr<< endl;
+		cout << "NPM : "<< value << endl;
+		cout << endl;
+}
+}
+
+strcat
+#include <iostream> 
+#include <cstring> 
+using namespace std;
+int main(){
+	char firstName [50] = "Rio "; 
+	char lastName[50] = "Arisandi";
+	char *fullName = strcat (firstName, lastName); 
+	cout << fullName;
+}
+
+#include <iostream> 
+using namespace std;
+int main(){
+	char nama [15]; 
+	char npm[10];
+	cin.get(nama, 15); 
+	cin.ignore(); 
+	cin.get(npm, 10);
+	
+	cout << "Nama : " << nama << endl; 
+	cout << "NPM : " << npm << endl;
+	}
