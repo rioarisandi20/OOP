@@ -43,3 +43,114 @@ int main(){
 	
 	return 0;
 }
+
+------------------------------
+
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+// Deklarasi struct Mahasiswa
+struct Mahasiswa {
+    char nama[100];
+    int umur;
+};
+
+// Deklarasi fungsi untuk mengisi data Mahasiswa
+void isiDataMahasiswa(Mahasiswa *mhs) {
+    cout << "Masukkan Nama Mahasiswa: ";
+    cin.ignore();
+    cin.getline(mhs->nama, 100);
+    cout << "Masukkan Umur Mahasiswa: ";
+    cin >> mhs->umur;
+}
+
+// Deklarasi fungsi untuk menampilkan data Mahasiswa
+void tampilDataMahasiswa(const Mahasiswa *mhs) {
+    cout << "Data Mahasiswa:\n";
+    cout << "Nama: " << mhs->nama << endl;
+    cout << "Umur: " << mhs->umur << " tahun" << endl;
+}
+
+int main() {
+    // Membuat objek Mahasiswa
+    Mahasiswa mhs;
+
+    // Mengisi data Mahasiswa
+    isiDataMahasiswa(&mhs);
+
+    // Menampilkan data Mahasiswa
+    tampilDataMahasiswa(&mhs);
+
+    return 0;
+}
+
+-------------------------------------
+
+#include <iostream>
+#include <cstring>
+
+using namespace std; // Menggunakan namespace std
+
+// Deklarasi class
+class Mahasiswa {
+private:
+    char nama[50];
+    int umur;
+    float ipk;
+
+public:
+    // Constructor
+    Mahasiswa(const char* _nama, int _umur, float _ipk) {
+        strcpy(nama, _nama);
+        umur = _umur;
+        ipk = _ipk;
+    }
+
+    // Getter
+    const char* getNama() const {
+        return nama;
+    }
+
+    int getUmur() const {
+        return umur;
+    }
+
+    float getIpk() const {
+        return ipk;
+    }
+
+    // Method
+    void displayInfo() const {
+        cout << "Nama: " << nama << endl;
+        cout << "Umur: " << umur << " tahun" << endl;
+        cout << "IPK: " << ipk << endl;
+    }
+};
+
+// Deklarasi function
+void displayMahasiswaInfo(const Mahasiswa* mhs) {
+    cout << "Info Mahasiswa: " << endl;
+    cout << "Nama: " << mhs->getNama() << endl;
+    cout << "Umur: " << mhs->getUmur() << " tahun" << endl;
+    cout << "IPK: " << mhs->getIpk() << endl;
+}
+
+int main() {
+    // Penggunaan pointer
+    Mahasiswa* mhs1 = new Mahasiswa("John Doe", 20, 3.75);
+    mhs1->displayInfo();
+
+    // Penggunaan cstring
+    char nama[50];
+    cout << "Masukkan nama: ";
+    cin.getline(nama, 50);
+
+    // Penggunaan class/struct dan function
+    Mahasiswa mhs2(nama, 22, 3.95);
+    displayMahasiswaInfo(&mhs2);
+
+    return 0;
+}
+
